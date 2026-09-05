@@ -1,17 +1,37 @@
-# React + Vite
+# Задание
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Сверстать сайт образовательного сервиса **«Schoolio Digital»** (онлайн-платформа для школьного и семейного обучения). Сайт — одностраничный лендинг (десктоп + адаптив под планшет и мобильные устройства).
 
-Currently, two official plugins are available:
+## Страница «Главная»
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **шапка** — логотип «Schoolio Digital» слева, горизонтальное меню по центру (Home, About, Courses и т.п.), справа — кнопка-CTA;
+- **hero-блок** на всю ширину с фиолетово-оранжевым градиентным фоном, крупный заголовок **«Schoolio Digital»**, подзаголовок, кнопка-CTA, декоративная иллюстрация (глобус/планета с иконками приложений вокруг), ниже — мокап устройства (планшет/телефон) с плавающими UI-иконками;
+- блок **«Enrich Your Child's Education Journey»** — заголовок, текстовый блок о преимуществах сервиса, две фотографии (родитель и ребёнок/ученики за занятиями);
+- блок **«Your Complete All-in-One Solution»** (персиковый/оранжевый фон) — текстовый блок слева, справа — мокап телефона с экранами приложения;
+- промо-баннер (фиолетово-оранжевый градиент) — крупный текст-призыв и кнопка-CTA;
+- блок **«Where Academics And Well-Being Meet»** — заголовок, небольшая декоративная иконка, иллюстрация дашборда/календаря на планшете;
+- блок **«Individualized Learning Path»** (светло-голубой фон) — заголовок, иллюстрация сети/графа, соединяющая фотографии людей (семья/ученики), декоративная звёздочка-иконка;
+- блок **«A Library That Grows With Your Learner»** — заголовок, текст, сетка из цветных иконок предметов/обложек курсов;
+- блок **«Have a Unique Needs Learner?»** — заголовок, текст, две фотографии детей/учеников;
+- блок **«Flexible to Your Style: Online, Offline, or Hybrid»** (светло-зелёный фон) — заголовок, изображения книг и ноутбука;
+- блок **«Perfect for»** — заголовок, далее чередующиеся ряды «фото + текст» (попеременно фото слева/справа), каждый ряд посвящён своей аудитории (родители, ученики, учителя, школы) и завершается кнопкой-CTA своего акцентного цвета (красная, синяя, зелёная, синяя), ниже — фото здания школы и строка мелких иконок (функции/способы оплаты);
+- блок **«Loved by learners everywhere»** — сетка фото-отзывов учеников с цитатами;
+- промо-баннер (фиолетово-оранжевый градиент) — повторный призыв с кнопкой-CTA;
+- блок **«FAQ»** — аккордеон вопросов-ответов слева, справа — компактная форма обратной связи (имя, e-mail, комментарий);
+- блок **«Quickly start as a…»** — заголовок и набор кнопок выбора роли (Student, Parent, Teacher, School), каждая своего акцентного цвета;
+- **футер** — логотип, копирайт, иконки соцсетей и служебные ссылки на фиолетовом фоне.
 
-## React Compiler
+## Адаптивность
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Сайт должен быть адаптивным, для каждого блока предусмотрена мобильная версия:
 
-## Expanding the Oxlint configuration
+- **десктоп** — полноширинные блоки, «Perfect for» и карточки «A Library…» — в несколько колонок;
+- **планшет (iPad mini)** — сужение hero-блока, карточки/иконки — по 1–2 в ряд, меню сворачивается в бургер;
+- **мобильная версия** — все блоки в один стек (одна колонка): шапка с бургер-меню, hero, текстовые блоки с фото друг под другом, «Perfect for» — карточки друг под другом, «Loved by learners» и FAQ — в столбец, футер сжимается в компактный блок.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
-# schoolio
+## Дизайн
+
+Светлый фон с яркими цветными акцентами. Основные акцентные цвета — **фиолетовый и оранжевый** (градиенты в hero и промо-баннерах, кнопки-CTA), дополнительные акценты — персиковый, светло-голубой и светло-зелёный фоны отдельных блоков. Крупная лаконичная типографика для заголовков, дружелюбные иллюстрации и фотографии учеников/семей как основной визуальный акцент.
+
+Сверстать по макету в Figma:
+[https://www.figma.com/design/ypMdiUvh5fEdgPYKXzbsqx/Schoolio-2.0--Copy-?node-id=235-2469&p=f&t=X5xxZb8ibmIfSa98-0](https://www.figma.com/design/ypMdiUvh5fEdgPYKXzbsqx/Schoolio-2.0--Copy-?node-id=235-2469&p=f&t=X5xxZb8ibmIfSa98-0)
