@@ -1,0 +1,20 @@
+.library-grows__frame {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 10px;
+  box-shadow: 0 24px 48px rgba(28, 24, 54, 0.16);
+  overflow: hidden;
+}
+
+.library-grows__frame img {
+  width: 100%;
+  border-radius: 16px;
+  display: block;
+}
+
+@media (min-width: 1024px) {
+  .library-grows__frame {
+    border-radius: 32px;
+    padding: 14px;
+  }
+}

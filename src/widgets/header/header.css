@@ -1,0 +1,242 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  width: 100%;
+}
+
+.header__announce {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: #5e328b;
+  color: #ffffff;
+  text-align: center;
+  font-size: 13px;
+  padding: 8px 16px;
+}
+
+.header__help {
+  position: relative;
+}
+
+.header__help-trigger {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font: inherit;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 2px 4px;
+  border-radius: 6px;
+  transition: background 0.15s ease;
+}
+
+.header__help-trigger:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.header__help-popover {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 16px 32px rgba(15, 12, 29, 0.25);
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+  z-index: 60;
+  animation: header-pop 0.18s ease;
+}
+
+.header__help-popover::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 10px;
+  height: 10px;
+  background: #ffffff;
+}
+
+.header__help-link {
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #1a1a2e;
+  text-align: left;
+  transition: background 0.15s ease;
+}
+
+.header__help-link:hover {
+  background: #f3eefb;
+  color: #5e328b;
+}
+
+@keyframes header-pop {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.header__nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  background: #ffffff;
+  box-shadow: 0 6px 20px rgba(15, 12, 29, 0.08);
+}
+
+.header__logo {
+  display: inline-flex;
+  align-items: center;
+  transition: opacity 0.15s ease;
+}
+
+.header__logo img {
+  display: block;
+  height: 24px;
+  width: auto;
+}
+
+.header__logo:hover {
+  opacity: 0.75;
+}
+
+.header__links {
+  display: none;
+  align-items: center;
+  gap: 24px;
+}
+
+.header__links a,
+.header__link-btn {
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 500;
+  color: #1a1a2e;
+  position: relative;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* подчёркивание, растущее при наведении */
+.header__links a::after,
+.header__link-btn::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: #3988c4;
+  transition: width 0.2s ease;
+}
+
+.header__links a:hover::after,
+.header__link-btn:hover::after {
+  width: 100%;
+}
+
+.header__cta {
+  margin-left: 8px;
+}
+
+/* гамбургер — только на мобилке */
+.header__burger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.header__burger span {
+  display: block;
+  height: 2px;
+  background: #1a1a2e;
+  border-radius: 2px;
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.header__burger--open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.header__burger--open span:nth-child(2) {
+  opacity: 0;
+}
+.header__burger--open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.header__links--open {
+  display: flex;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+  background: #ffffff;
+  box-shadow: 0 16px 24px rgba(15, 12, 29, 0.12);
+  padding: 8px 24px 16px;
+}
+
+.header__links--open a,
+.header__links--open .header__link-btn {
+  padding: 12px 0;
+  border-bottom: 1px solid #f1eef7;
+  text-align: left;
+}
+
+.header__links--open .header__cta {
+  margin: 12px 0 0;
+  align-self: flex-start;
+}
+
+@media (min-width: 768px) {
+  .header__nav {
+    padding: 20px 64px;
+  }
+
+  .header__links {
+    display: flex;
+    position: static;
+    box-shadow: none;
+    padding: 0;
+    background: none;
+  }
+
+  .header__links a {
+    padding: 0;
+    border-bottom: none;
+  }
+
+  .header__burger {
+    display: none;
+  }
+}

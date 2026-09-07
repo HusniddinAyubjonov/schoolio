@@ -1,0 +1,244 @@
+.hero {
+  position: relative;
+  isolation: isolate; /* свой контекст наложения — z-index работает предсказуемо */
+  padding: 0 20px;
+  text-align: center;
+  color: #ffffff;
+  background: #f7f6fb; /* видно в уголках скругления .hero__bg, если он не дотягивает до края */
+}
+
+/* ФОН: градиент + декор, клипается по скруглённым углам.
+   bottom не 0 — специально останавливаем фон РАНЬШЕ конца секции,
+   чтобы низ .hero__dashboard оказался уже на белом. */
+.hero__bg {
+  position: absolute;
+  top: 0;
+  left: 20px;
+  right: 20px;
+  bottom: 70px;
+  z-index: 0;
+  overflow: hidden;
+  border-radius: 0 0 56px 56px;
+  background: linear-gradient(135deg, #5e328b 0%, #3988c4 100%);
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  padding-top: 48px;
+}
+
+.hero__eyebrow {
+  font-size: 14px;
+  opacity: 0.85;
+  margin-bottom: 8px;
+}
+
+.hero__title {
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.hero__trademark {
+  font-size: 16px;
+  vertical-align: super;
+}
+
+.hero__subtitle {
+  font-size: 15px;
+  opacity: 0.9;
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+/* ===================== ДЕКОР НА ФОНЕ ===================== */
+.hero__decor {
+  color: white;
+  position: absolute;
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+.hero__decor--telescope {
+  color: #ffffff;
+  top: 8%;
+  left: 2%;
+  width: 22%;
+  max-width: 110px;
+}
+.hero__decor--molecule {
+  top: 1%;
+  left: 0%;
+  width: 16%;
+  max-width: 80px;
+}
+.hero__decor--ruler {
+  top: 40%;
+  left: 3%;
+  width: 15%;
+  max-width: 75px;
+}
+.hero__decor--globe {
+  top: 9%;
+  right: 3%;
+  width: 20%;
+  max-width: 100px;
+}
+.hero__decor--note {
+  top: 26%;
+  right: 9%;
+  width: 8%;
+  max-width: 42px;
+}
+.hero__decor--pencil {
+  top: 52%;
+  right: 4%;
+  width: 12%;
+  max-width: 60px;
+}
+
+/* ===================== КОМПОЗИЦИЯ КАРТОЧЕК =====================
+   Соотношение сторон 908:602 подобрано под макет — внутри всё
+   позиционируется в % от этого блока (см. .hero__img/.hero__card). */
+.hero__dashboard {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 620px;
+  aspect-ratio: 908 / 602;
+  margin: 40px auto 0;
+}
+
+.hero__img {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  box-shadow: 0 16px 32px rgba(15, 12, 29, 0.25);
+}
+
+.hero__img--main {
+  top: 0%;
+  left: 15%;
+  width: 75.3%;
+  z-index: 1;
+}
+
+.hero__img--calendar {
+  top: 61.1%;
+  left: 31.4%;
+  width: 41.3%;
+  z-index: 4;
+}
+
+/* карточки-кнопки (кликабельные — открывают модалку) */
+.hero__card {
+  position: absolute;
+  border: none;
+  padding: 0;
+  background: none;
+  cursor: pointer;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 16px 32px rgba(15, 12, 29, 0.25);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.hero__card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: inherit;
+}
+
+.hero__card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 22px 40px rgba(15, 12, 29, 0.35);
+}
+
+.hero__card:focus-visible {
+  outline: 3px solid #f2c94c;
+  outline-offset: 2px;
+}
+
+.hero__card--topic {
+  top: 53.7%;
+  left: 0%;
+  width: 39.4%;
+  z-index: 2;
+}
+
+.hero__card--spelling {
+  top: 41.5%;
+  left: 63.3%;
+  width: 36.7%;
+  z-index: 3;
+}
+
+.hero__play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 15%;
+  aspect-ratio: 1;
+  min-width: 30px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  color: #1c1836;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease;
+}
+
+.hero__card:hover .hero__play {
+  transform: translate(-50%, -50%) scale(1.15);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__card,
+  .hero__play {
+    transition: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    padding: 0 64px;
+  }
+
+  .hero__bg {
+    left: 64px;
+    right: 64px;
+    bottom: 130px;
+    border-radius: 0 0 64px 64px;
+  }
+
+  .hero__content {
+    padding-top: 72px;
+  }
+
+  .hero__title {
+    font-size: 56px;
+  }
+
+  .hero__subtitle {
+    font-size: 18px;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero__dashboard {
+    max-width: 900px;
+    margin-top: 56px;
+  }
+}

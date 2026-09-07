@@ -1,0 +1,6 @@
+.home-page {
+  width: 100%;
+  /* clip, а не hidden: обрезает горизонтальный вылет декора, но НЕ делает
+     из .home-page скролл-контейнер — иначе ломается position: sticky у хедера */
+  overflow-x: clip;
+}

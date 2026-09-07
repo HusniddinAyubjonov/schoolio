@@ -1,0 +1,237 @@
+.perfect-for {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 72px 20px;
+}
+
+.perfect-for__title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.15;
+  margin-bottom: 40px;
+}
+
+.perfect-for__rows {
+  display: flex;
+  flex-direction: column;
+  gap: 72px;
+}
+
+.role {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.role__title {
+  font-family: var(--font-script);
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.role__cols {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* градиентная карточка с фото */
+.role__art {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 22px 44px rgba(28, 24, 54, 0.16);
+}
+
+.role__photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.role__art:hover .role__photo {
+  transform: scale(1.05);
+}
+
+.role__doodle {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  color: #ffffff;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.18));
+}
+
+.role__content {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.role__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.role__list li {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  line-height: 1.4;
+  padding-bottom: 20px;
+  border-bottom: 3px solid
+    color-mix(in srgb, var(--tone) 42%, #ffffff);
+}
+
+.role__list li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* CTA — прямоугольная скруглённая (r=16) в цвет блока, перекрываем базовый .btn */
+.btn.role__cta {
+  align-self: flex-start;
+  border-radius: 16px;
+  padding: 15px 32px;
+  background: var(--tone);
+  box-shadow: 0 10px 22px color-mix(in srgb, var(--tone) 34%, transparent);
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.btn.role__cta:hover {
+  box-shadow: 0 14px 28px color-mix(in srgb, var(--tone) 44%, transparent);
+}
+
+.btn.role__cta:focus-visible {
+  outline: 2px solid var(--tone);
+}
+
+@media (min-width: 1024px) {
+  .perfect-for {
+    padding: 140px 40px;
+  }
+
+  .perfect-for__title {
+    font-size: 56px;
+    margin-bottom: 96px;
+  }
+
+  .perfect-for__rows {
+    gap: 120px;
+  }
+
+  .role {
+    gap: 56px;
+  }
+
+  .role__title {
+    font-size: 46px;
+  }
+
+  .role__cols {
+    flex-direction: row;
+    align-items: center;
+    gap: 64px;
+  }
+
+  .role__art {
+    flex: 0 0 48%;
+    max-width: 568px;
+    aspect-ratio: 568 / 360;
+    border-radius: 32px;
+  }
+
+  .role__doodle {
+    width: 84px;
+    height: 84px;
+    top: 26px;
+    right: 28px;
+  }
+
+  .role__content {
+    flex: 1;
+  }
+
+  .role__list li {
+    font-size: 18px;
+  }
+
+  /* нечётные блоки — фото слева; чётные — фото справа */
+  .role:nth-of-type(even) .role__art {
+    order: 2;
+  }
+}
+
+/* каскад появления внутри блока, когда сам блок вошёл во вьюпорт */
+.role .role__art {
+  opacity: 0;
+  transform: scale(0.92) translateY(24px);
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.05s,
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.05s;
+}
+
+.role .role__list li,
+.role .role__cta {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.55s ease,
+    transform 0.55s ease;
+}
+
+.role.reveal--in .role__art {
+  opacity: 1;
+  transform: none;
+}
+
+.role.reveal--in .role__list li,
+.role.reveal--in .role__cta {
+  opacity: 1;
+  transform: none;
+}
+
+.role.reveal--in .role__list li:nth-child(1) {
+  transition-delay: 0.18s;
+}
+.role.reveal--in .role__list li:nth-child(2) {
+  transition-delay: 0.26s;
+}
+.role.reveal--in .role__list li:nth-child(3) {
+  transition-delay: 0.34s;
+}
+.role.reveal--in .role__list li:nth-child(4) {
+  transition-delay: 0.42s;
+}
+.role.reveal--in .role__cta {
+  transition-delay: 0.5s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .role .role__art,
+  .role .role__list li,
+  .role .role__cta,
+  .role__photo {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .btn.role__cta {
+    transition: none;
+  }
+}

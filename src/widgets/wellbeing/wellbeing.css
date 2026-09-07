@@ -1,0 +1,176 @@
+.wellbeing {
+  position: relative;
+  background: #fbfaff;
+  border-radius: 40px;
+  padding: 48px 24px;
+  text-align: left;
+}
+
+.wellbeing__title {
+  font-size: 22px;
+  font-weight: 800;
+  color: #1a1a2e;
+  margin-bottom: 32px;
+}
+
+.wellbeing__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+.wellbeing__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 340px;
+  width: 100%;
+}
+
+.wellbeing__list li {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1a1a2e;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #d6c8e8;
+}
+
+.wellbeing__dashboard-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  flex: 1 1 380px; /* гарантирует место в flex-строке даже пока картинка грузится */
+}
+
+.wellbeing__dashboard-img {
+  width: 100%;
+  display: block;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(28, 24, 54, 0.15);
+}
+
+/* кубок — над правым верхним углом картинки */
+.wellbeing__trophy {
+  position: absolute;
+  top: -30px;
+  right: -18px;
+  width: 84px;
+  height: auto;
+  transform: rotate(-17deg);
+  filter: drop-shadow(0 10px 16px rgba(0, 0, 0, 0.2));
+  z-index: 2;
+}
+
+.wellbeing__mood {
+  position: absolute;
+  left: 62%;
+  top: 46%;
+  width: 60%;
+  background: #5e328b;
+  border-radius: 14px;
+  padding: 12px 14px;
+  color: #ffffff;
+  box-shadow: 0 16px 30px rgba(28, 24, 54, 0.3);
+  z-index: 1;
+}
+
+.wellbeing__mood-greeting {
+  font-size: 10px;
+  opacity: 0.85;
+}
+
+.wellbeing__mood-question {
+  font-size: 12px;
+  font-weight: 700;
+  margin: 4px 0 8px;
+}
+
+.wellbeing__emojis {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.wellbeing__emoji {
+  border: none;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  padding: 5px 7px;
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease;
+}
+
+.wellbeing__emoji:hover {
+  transform: scale(1.15);
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.wellbeing__emoji--active {
+  background: #f2c94c;
+  transform: scale(1.15);
+}
+
+.wellbeing__mood-response {
+  margin-top: 10px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #ffe9c7;
+  animation: wellbeing-pop 0.25s ease;
+}
+
+@keyframes wellbeing-pop {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wellbeing__emoji,
+  .wellbeing__mood-response {
+    transition: none;
+    animation: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .wellbeing {
+    padding: 72px 64px;
+  }
+
+  .wellbeing__title {
+    font-size: 32px;
+  }
+
+  .wellbeing__content {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 64px;
+  }
+
+  .wellbeing__dashboard-wrap {
+    max-width: 520px;
+  }
+
+  .wellbeing__trophy {
+    width: 100px;
+    top: -34px;
+    right: -24px;
+  }
+
+  .wellbeing__emoji {
+    font-size: 16px;
+    padding: 6px 9px;
+  }
+}

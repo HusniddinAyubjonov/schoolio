@@ -1,0 +1,175 @@
+.solution {
+  position: relative;
+  z-index: 1;
+  background: #fce9de;
+  border-radius: 40px;
+  padding: 48px 24px;
+  text-align: center;
+}
+
+.solution__title {
+  font-size: 22px;
+  font-weight: 800;
+  color: #1a1a2e;
+  margin-bottom: 32px;
+}
+
+.solution__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+.solution__player-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 340px;
+}
+
+/* молния над картинкой, повёрнута как в Figma (-19.32deg) */
+.solution__thunder {
+  position: absolute;
+  top: -34px;
+  right: -16px;
+  width: 52px;
+  height: auto;
+  transform: rotate(-19deg);
+  filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.15));
+  z-index: 2;
+}
+
+.solution__player {
+  position: relative;
+  display: block;
+  width: 100%;
+  border: none;
+  background: #1c1836;
+  border-radius: 16px;
+  padding: 10px;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+  box-shadow: 0 16px 30px rgba(15, 12, 29, 0.2);
+}
+
+.solution__player:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 40px rgba(15, 12, 29, 0.3);
+}
+
+.solution__player:focus-visible {
+  outline: 3px solid #f2874c;
+  outline-offset: 2px;
+}
+
+.solution__player-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #ffffff;
+  font-size: 10px;
+  padding: 6px 4px 12px;
+}
+
+.solution__player-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #5e328b;
+}
+
+.solution__player-screen {
+  background: #ffffff;
+  border-radius: 10px;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.solution__player-play {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #f2874c;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  transition: transform 0.2s ease;
+}
+
+.solution__player:hover .solution__player-play {
+  transform: scale(1.15);
+}
+
+.solution__swirl {
+  position: absolute;
+  bottom: -20px;
+  left: -24px;
+  font-size: 24px;
+  color: #6fcf97;
+  z-index: 0;
+}
+
+.solution__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  text-align: left;
+  max-width: 320px;
+  width: 100%;
+}
+
+.solution__list li {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1a1a2e;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed #f2874c;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .solution__player,
+  .solution__player-play {
+    transition: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .solution {
+    padding: 72px 64px;
+  }
+
+  .solution__title {
+    font-size: 32px;
+  }
+
+  .solution__content {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 64px;
+  }
+
+  .solution__player-wrap {
+    max-width: 460px;
+  }
+
+  .solution__player-screen {
+    height: 220px;
+  }
+
+  .solution__thunder {
+    width: 64px;
+    top: -42px;
+    right: -22px;
+  }
+}

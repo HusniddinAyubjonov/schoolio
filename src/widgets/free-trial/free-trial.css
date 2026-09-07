@@ -1,0 +1,214 @@
+.free-trial {
+  background: #f7f6fb;
+  border-radius: 40px;
+  padding: 40px 20px;
+}
+
+.free-trial__card {
+  position: relative;
+  background: linear-gradient(135deg, #6b3d9c 0%, #4a7dc4 60%, #3988c4 100%);
+  border-radius: 28px;
+  padding: 32px 24px;
+  overflow: visible; /* чтобы dash-marks могли вылезать за край карточки */
+  box-shadow: 0 24px 48px rgba(35, 20, 70, 0.28);
+}
+
+.free-trial__title {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.free-trial__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.free-trial__list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: #ffffff;
+  font-size: 13px;
+  opacity: 0.94;
+  line-height: 1.4;
+}
+
+/* галочки покрупнее и позаметнее */
+.free-trial__check {
+  flex-shrink: 0;
+  font-size: 18px;
+  font-weight: 800;
+  color: #ffd166;
+  line-height: 1.2;
+}
+
+.free-trial__cta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* ---- модалка записи на пробный период (react-responsive-modal) ---- */
+.trial-modal__overlay {
+  background: rgba(26, 18, 48, 0.55);
+}
+
+.trial-modal {
+  width: min(440px, calc(100vw - 32px));
+  border-radius: 24px;
+  padding: 36px 28px 28px;
+  box-shadow: 0 30px 60px rgba(26, 18, 48, 0.35);
+  font-family: var(--font-sans);
+}
+
+.trial-modal__close {
+  top: 16px;
+  right: 16px;
+}
+
+.trial-modal__close svg {
+  fill: #8a8f99;
+}
+
+.trial-modal__form,
+.trial-modal__done {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.trial-modal__done {
+  align-items: center;
+  text-align: center;
+}
+
+.trial-modal h3 {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.trial-modal__form > p,
+.trial-modal__done p {
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+.trial-modal__emoji {
+  font-size: 40px;
+  line-height: 1;
+}
+
+.trial-modal__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.trial-modal__field span {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.trial-modal__field input {
+  font: inherit;
+  font-size: 15px;
+  padding: 12px 14px;
+  border: 1.5px solid #d8d5e4;
+  border-radius: 12px;
+  outline: none;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.trial-modal__field input:focus {
+  border-color: #f2874c;
+  box-shadow: 0 0 0 3px rgba(242, 135, 76, 0.2);
+}
+
+.btn.trial-modal__submit {
+  width: 100%;
+  margin-top: 4px;
+}
+
+.trial-modal__fineprint {
+  font-size: 11px !important;
+  color: #9a9aa6 !important;
+  text-align: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trial-modal__field input {
+    transition: none;
+  }
+}
+
+.free-trial__fire {
+  display: none;
+}
+
+/* декор: завитки над огнём (позиция подобрана под квадрат картинки) */
+.free-trial__squiggle {
+  position: absolute;
+  top: 8%;
+  right: 8%;
+  width: 34px;
+  height: auto;
+  z-index: 2;
+}
+
+/* декор: штрихи снизу-слева, за пределами карточки */
+.free-trial__dash-marks {
+  position: absolute;
+  bottom: -26px;
+  left: -14px;
+  width: 64px;
+  height: auto;
+  z-index: 0;
+}
+
+@media (min-width: 768px) {
+  .free-trial {
+    padding: 64px 64px;
+  }
+
+  .free-trial__card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 48px 56px;
+  }
+
+  .free-trial__title {
+    font-size: 28px;
+  }
+
+  .free-trial__list li {
+    font-size: 14px;
+  }
+
+  .free-trial__fire {
+    display: block;
+    width: 220px;
+    height: auto;
+    flex-shrink: 0;
+    filter: drop-shadow(0 16px 24px rgba(0, 0, 0, 0.3));
+  }
+
+  .free-trial__squiggle {
+    top: 4%;
+    right: 4%;
+    width: 40px;
+  }
+}
