@@ -102,10 +102,15 @@
 }
 
 .header__logo {
-  font-size: 22px;
-  font-weight: 700;
-  color: #3988c4;
+  display: inline-flex;
+  align-items: center;
   transition: opacity 0.15s ease;
+}
+
+.header__logo img {
+  display: block;
+  height: 24px;
+  width: auto;
 }
 
 .header__logo:hover {

@@ -45,9 +45,14 @@
 }
 
 .footer__logo {
-  font-size: 26px;
-  font-weight: 800;
-  letter-spacing: -0.01em;
+  display: inline-flex;
+  align-items: center;
+}
+
+.footer__logo img {
+  display: block;
+  height: 30px;
+  width: auto;
 }
 
 .footer__nav {
@@ -146,8 +151,8 @@
     padding: 128px 264px 64px;
   }
 
-  .footer__logo {
-    font-size: 30px;
+  .footer__logo img {
+    height: 36px;
   }
 
   .footer__nav a {

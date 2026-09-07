@@ -41,7 +41,14 @@ export const Footer = () => {
         <span className="footer__planet" aria-hidden="true" />
 
         <Reveal className="footer__main">
-          <span className="footer__logo">schoolio</span>
+          <span className="footer__logo">
+            <img
+              src="/images/brand/logo-white.svg"
+              alt="Schoolio"
+              width="184"
+              height="34"
+            />
+          </span>
 
           <nav className="footer__nav" aria-label="Footer">
             {navLinks.map((link) => (

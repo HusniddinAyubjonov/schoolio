@@ -65,7 +65,9 @@ export const Header = () => {
       </div>
 
       <div className="header__nav">
-        <span className="header__logo">schoolio</span>
+        <span className="header__logo">
+          <img src="/images/brand/logo.svg" alt="Schoolio" width="120" height="23" />
+        </span>
 
         <nav
           className={`header__links ${menuOpen ? "header__links--open" : ""}`}
