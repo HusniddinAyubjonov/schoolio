@@ -1,0 +1,205 @@
+.perfect-for {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  padding: 64px 20px;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.role {
+  --tone: #6a4c93;
+  --tone-soft: #c3a3e6;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.role--purple {
+  --tone: #5e328b;
+  --tone-soft: #c9aee9;
+  --grad-a: #7b53c9;
+  --grad-b: #9a6ee0;
+}
+.role--coral {
+  --tone: #c0392b;
+  --tone-soft: #efc3b8;
+  --grad-a: #e07a63;
+  --grad-b: #e89b8a;
+}
+.role--orange {
+  --tone: #e07b39;
+  --tone-soft: #f6d3b8;
+  --grad-a: #f79b5f;
+  --grad-b: #f7c08a;
+}
+.role--green {
+  --tone: #3f9d54;
+  --tone-soft: #bfe4c7;
+  --grad-a: #6fcf97;
+  --grad-b: #9ad9a8;
+}
+.role--blue {
+  --tone: #3d6fb4;
+  --tone-soft: #bcd7ef;
+  --grad-a: #5aa0d6;
+  --grad-b: #8fbfe4;
+}
+
+.role__head {
+  text-align: center;
+}
+
+.role__eyebrow {
+  font-size: 26px;
+  font-weight: 800;
+  color: #1a1a2e;
+  line-height: 1.15;
+}
+
+.role__title {
+  font-size: 30px;
+  font-weight: 800;
+  color: var(--tone);
+  line-height: 1.15;
+}
+
+/* цветная подложка + дудл */
+.role__art {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 28px;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--grad-a), var(--grad-b));
+  box-shadow: 0 24px 44px rgba(28, 24, 54, 0.16);
+}
+
+.role__photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.role__doodle {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  width: 68px;
+  height: 68px;
+  color: #ffffff;
+  opacity: 0.9;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+}
+
+.role__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.role__list li {
+  font-size: 15px;
+  font-weight: 500;
+  color: #1a1a2e;
+  padding: 16px 4px;
+  border-bottom: 2px solid var(--tone-soft);
+}
+
+.role__list li:first-child {
+  padding-top: 4px;
+}
+
+/* CTA — перекрываем базовый оранжевый .btn через большую специфичность */
+.btn.role__cta {
+  align-self: flex-start;
+  margin-top: 8px;
+  background: var(--tone);
+  box-shadow: 0 10px 22px color-mix(in srgb, var(--tone) 38%, transparent);
+}
+
+.btn.role__cta:hover {
+  box-shadow: 0 14px 28px color-mix(in srgb, var(--tone) 48%, transparent);
+}
+
+.btn.role__cta:focus-visible {
+  outline: 2px solid var(--tone);
+}
+
+@media (min-width: 1024px) {
+  .perfect-for {
+    gap: 120px;
+    padding: 120px 40px;
+  }
+
+  .role {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 72px;
+    row-gap: 0;
+    align-items: center;
+  }
+
+  .role__head {
+    grid-column: 1;
+    text-align: left;
+    align-self: end;
+    margin-bottom: 24px;
+  }
+
+  .role__eyebrow {
+    font-size: 40px;
+  }
+
+  .role__title {
+    font-size: 46px;
+  }
+
+  /* арт — справа, на всю высоту двух текстовых рядов */
+  .role__art {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+    aspect-ratio: 1 / 1;
+  }
+
+  .role__doodle {
+    width: 90px;
+    height: 90px;
+    top: 24px;
+    right: 26px;
+  }
+
+  .role__list {
+    grid-column: 1;
+  }
+
+  .role__list li {
+    font-size: 16px;
+    padding: 20px 4px;
+  }
+
+  .btn.role__cta {
+    grid-column: 1;
+    align-self: start;
+    margin-top: 28px;
+  }
+
+  /* чётные блоки — арт слева (зеркалим) */
+  .role:nth-child(even) .role__head,
+  .role:nth-child(even) .role__list,
+  .role:nth-child(even) .btn.role__cta {
+    grid-column: 2;
+  }
+
+  .role:nth-child(even) .role__art {
+    grid-column: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn.role__cta {
+    transition: none;
+  }
+}

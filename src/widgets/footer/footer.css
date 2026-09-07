@@ -1,0 +1,142 @@
+.footer {
+  padding: 0 12px 12px;
+}
+
+.footer__card {
+  position: relative;
+  overflow: hidden;
+  max-width: 1180px;
+  margin: 0 auto;
+  border-radius: 36px;
+  padding: 56px 24px 40px;
+  text-align: center;
+  color: #ffffff;
+  background: linear-gradient(150deg, #4a2f8f 0%, #5b47c7 55%, #3f6fd6 100%);
+}
+
+.footer__planet {
+  position: absolute;
+  right: -60px;
+  bottom: -60px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.18);
+  box-shadow: inset 0 0 0 24px rgba(255, 255, 255, 0.05);
+}
+
+.footer__planet::after {
+  content: "";
+  position: absolute;
+  left: -34px;
+  top: 50%;
+  width: 288px;
+  height: 60px;
+  border: 2px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50%;
+  transform: translateY(-50%) rotate(-18deg);
+}
+
+.footer__sparkle {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  font-size: 26px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.footer__logo {
+  position: relative;
+  display: inline-block;
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin-bottom: 22px;
+}
+
+.footer__nav {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.footer__nav a {
+  font-size: 15px;
+  font-weight: 500;
+  opacity: 0.92;
+  transition: opacity 0.15s ease;
+}
+
+.footer__nav a:hover {
+  opacity: 1;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.footer__socials {
+  position: relative;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.footer__socials a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  color: #ffffff;
+  transition:
+    background 0.15s ease,
+    transform 0.15s ease;
+}
+
+.footer__socials a:hover {
+  background: rgba(255, 255, 255, 0.16);
+  transform: translateY(-2px);
+}
+
+.footer__socials svg {
+  width: 20px;
+  height: 20px;
+}
+
+.footer__copy {
+  position: relative;
+  font-size: 12px;
+  opacity: 0.75;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+@media (min-width: 768px) {
+  .footer__nav {
+    flex-direction: row;
+    justify-content: center;
+    gap: 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .footer__card {
+    padding: 72px 48px 48px;
+  }
+
+  .footer__logo {
+    font-size: 30px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer__nav a,
+  .footer__socials a {
+    transition: none;
+  }
+}

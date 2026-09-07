@@ -1,0 +1,138 @@
+.faq {
+  padding: 40px 16px 64px;
+}
+
+.faq__inner {
+  max-width: 760px;
+  margin: 0 auto;
+  background: #f1edfb;
+  border-radius: 36px;
+  padding: 40px 20px;
+}
+
+.faq__title {
+  text-align: center;
+  font-size: 34px;
+  font-weight: 800;
+  color: #1a1a2e;
+  margin-bottom: 28px;
+}
+
+.faq__list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* --- категория --- */
+.faq-group {
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 8px 22px rgba(28, 24, 54, 0.06);
+  overflow: hidden;
+}
+
+.faq-group__trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 22px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a2e;
+  text-align: left;
+}
+
+.faq-group__chevron,
+.faq-q__chevron {
+  flex-shrink: 0;
+  width: 12px;
+  height: 12px;
+  border-right: 2px solid #6b5b95;
+  border-bottom: 2px solid #6b5b95;
+  transform: rotate(45deg);
+  transition: transform 0.2s ease;
+}
+
+.faq-group--open .faq-group__chevron {
+  transform: rotate(-135deg);
+}
+
+.faq-group__panel {
+  padding: 0 14px 12px;
+}
+
+/* --- вопрос внутри категории --- */
+.faq-q {
+  border-top: 1px solid #ece8f5;
+}
+
+.faq-q:first-child {
+  border-top: none;
+}
+
+.faq-q__trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 16px 8px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  color: #33334a;
+  text-align: left;
+}
+
+.faq-q--open .faq-q__chevron {
+  transform: rotate(-135deg);
+}
+
+.faq-q__panel {
+  padding: 0 8px 16px;
+}
+
+.faq-q__panel p {
+  font-size: 13px;
+  line-height: 1.7;
+  color: #5a5a6e;
+}
+
+@media (min-width: 1024px) {
+  .faq__inner {
+    padding: 64px 56px;
+  }
+
+  .faq__title {
+    font-size: 44px;
+    margin-bottom: 40px;
+  }
+
+  .faq-group__trigger {
+    font-size: 18px;
+    padding: 24px 28px;
+  }
+
+  .faq-q__trigger {
+    font-size: 15px;
+  }
+
+  .faq-q__panel p {
+    font-size: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .faq-group__chevron,
+  .faq-q__chevron {
+    transition: none;
+  }
+}
