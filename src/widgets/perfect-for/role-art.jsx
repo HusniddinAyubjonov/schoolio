@@ -1,7 +1,6 @@
 /**
- * Цветная подложка секции с белым дудлом-контуром.
- * Если задан data.image и он подгрузился — показываем фото поверх подложки,
- * иначе остаётся только градиент + дудл (страница не выглядит сломанной без ассетов).
+ * Карточка-подложка секции: градиент из макета + фото + белый дудл-контур.
+ * Фото кроется по центру; если не загрузилось — остаётся только градиент с дудлом.
  */
 const doodles = {
   crown: (
@@ -49,9 +48,9 @@ const doodles = {
   ),
 };
 
-export const RoleArt = ({ tone, doodle, image, alt }) => {
+export const RoleArt = ({ gradient, doodle, image, alt }) => {
   return (
-    <div className={`role__art role__art--${tone}`}>
+    <div className="role__art" style={{ background: gradient }}>
       {image && (
         <img
           src={image}

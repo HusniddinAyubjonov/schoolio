@@ -6,38 +6,46 @@ import { RoleArt } from "./role-art.jsx";
 export const PerfectFor = () => {
   return (
     <section className="perfect-for" id="perfect-for">
-      {roles.map((role) => (
-        <article
-          key={role.id}
-          className={`role role--${role.tone}`}
-          id={`perfect-for-${role.id}`}
-        >
-          <header className="role__head">
-            {role.eyebrow && <p className="role__eyebrow">{role.eyebrow}</p>}
-            <h2 className="role__title">{role.title}</h2>
-          </header>
+      <h2 className="perfect-for__title">Perfect for</h2>
 
-          <RoleArt
-            tone={role.tone}
-            doodle={role.doodle}
-            image={role.image}
-            alt={role.title}
-          />
-
-          <ul className="role__list">
-            {role.points.map((point) => (
-              <li key={point}>{point}</li>
-            ))}
-          </ul>
-
-          <Button
-            className={`role__cta role__cta--${role.tone}`}
-            onClick={() => scrollToId("trial")}
+      <div className="perfect-for__rows">
+        {roles.map((role) => (
+          <article
+            key={role.id}
+            className="role"
+            id={`perfect-for-${role.id}`}
+            style={{ "--tone": role.tone }}
           >
-            {role.cta}
-          </Button>
-        </article>
-      ))}
+            <h3 className="role__title" style={{ color: role.tone }}>
+              {role.title}
+            </h3>
+
+            <div className="role__cols">
+              <RoleArt
+                gradient={role.gradient}
+                doodle={role.doodle}
+                image={role.image}
+                alt={role.title}
+              />
+
+              <div className="role__content">
+                <ul className="role__list">
+                  {role.points.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
+
+                <Button
+                  className="role__cta"
+                  onClick={() => scrollToId("trial")}
+                >
+                  {role.cta}
+                </Button>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
     </section>
   );
 };
