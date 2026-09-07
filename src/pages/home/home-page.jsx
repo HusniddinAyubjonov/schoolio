@@ -3,6 +3,10 @@ import { Hero } from "@/widgets/hero";
 import { EducationJourney } from "@/widgets/education-journey";
 import { AllInOneSolution } from "@/widgets/all-in-one-solution";
 import { Wellbeing } from "@/widgets/wellbeing";
+import { IndividualizedPath } from "@/widgets/individualized-path";
+import { LibraryGrows } from "@/widgets/library-grows";
+import { UniqueNeeds } from "@/widgets/unique-needs";
+import { FlexibleStyle } from "@/widgets/flexible-style";
 import { PerfectFor } from "@/widgets/perfect-for";
 import { TrustedBy } from "@/widgets/trusted-by";
 import { Testimonials } from "@/widgets/testimonials";
@@ -21,6 +25,10 @@ export const HomePage = () => {
         <AllInOneSolution />
         <FreeTrial />
         <Wellbeing />
+        <IndividualizedPath />
+        <LibraryGrows />
+        <UniqueNeeds />
+        <FlexibleStyle />
         <PerfectFor />
         <TrustedBy />
         <Testimonials />
