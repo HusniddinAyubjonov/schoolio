@@ -54,24 +54,102 @@
   flex-wrap: wrap;
 }
 
-.free-trial__sent {
-  color: #ffffff;
-  font-size: 13px;
-  font-weight: 600;
-  background: rgba(255, 255, 255, 0.18);
-  padding: 8px 14px;
-  border-radius: 20px;
-  animation: free-trial-pop 0.3s ease;
+/* ---- модалка записи на пробный период (react-responsive-modal) ---- */
+.trial-modal__overlay {
+  background: rgba(26, 18, 48, 0.55);
 }
 
-@keyframes free-trial-pop {
-  from {
-    opacity: 0;
-    transform: scale(0.85);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
+.trial-modal {
+  width: min(440px, calc(100vw - 32px));
+  border-radius: 24px;
+  padding: 36px 28px 28px;
+  box-shadow: 0 30px 60px rgba(26, 18, 48, 0.35);
+  font-family: var(--font-sans);
+}
+
+.trial-modal__close {
+  top: 16px;
+  right: 16px;
+}
+
+.trial-modal__close svg {
+  fill: #8a8f99;
+}
+
+.trial-modal__form,
+.trial-modal__done {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.trial-modal__done {
+  align-items: center;
+  text-align: center;
+}
+
+.trial-modal h3 {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.trial-modal__form > p,
+.trial-modal__done p {
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+.trial-modal__emoji {
+  font-size: 40px;
+  line-height: 1;
+}
+
+.trial-modal__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.trial-modal__field span {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.trial-modal__field input {
+  font: inherit;
+  font-size: 15px;
+  padding: 12px 14px;
+  border: 1.5px solid #d8d5e4;
+  border-radius: 12px;
+  outline: none;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.trial-modal__field input:focus {
+  border-color: #f2874c;
+  box-shadow: 0 0 0 3px rgba(242, 135, 76, 0.2);
+}
+
+.btn.trial-modal__submit {
+  width: 100%;
+  margin-top: 4px;
+}
+
+.trial-modal__fineprint {
+  font-size: 11px !important;
+  color: #9a9aa6 !important;
+  text-align: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trial-modal__field input {
+    transition: none;
   }
 }
 
