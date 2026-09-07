@@ -1,0 +1,104 @@
+.education-journey {
+  position: relative;
+  z-index: 2; /* выше следующей (peach) секции — чтобы фото "проваливались" поверх неё */
+  background: #ffffff;
+  border-radius: 40px;
+  padding: 40px 24px 0; /* низ = 0, место под "провал" фото ниже */
+  text-align: left;
+}
+
+.education-journey__sparkles {
+  display: block;
+  color: #5e328b;
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+
+.education-journey__title {
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1.3;
+  color: #1a1a2e;
+  margin-bottom: 32px;
+  max-width: 560px;
+}
+
+.education-journey__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+.education-journey__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 340px;
+  width: 100%;
+}
+
+.education-journey__list li {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1a1a2e;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #6fcf97;
+}
+
+.education-journey__photo {
+  position: relative;
+  width: 200px;
+  margin-bottom: -40px; /* "проваливаем" фото в секцию ниже */
+}
+
+.education-journey__photo img {
+  width: 100%;
+  display: block;
+}
+
+.education-journey__doodle {
+  position: absolute;
+  width: 40px;
+  height: auto;
+}
+
+.education-journey__doodle--notepad {
+  top: -8px;
+  left: -18px;
+  transform: rotate(-10deg);
+}
+
+.education-journey__doodle--cap {
+  top: -22px;
+  right: 6px;
+  transform: rotate(8deg);
+}
+
+@media (min-width: 1024px) {
+  .education-journey {
+    padding: 64px 64px 0;
+  }
+
+  .education-journey__title {
+    font-size: 32px;
+  }
+
+  .education-journey__content {
+    flex-direction: row;
+    align-items: flex-end; /* фото прижаты к низу */
+    justify-content: center;
+    gap: 64px;
+  }
+
+  .education-journey__list {
+    align-self: flex-start; /* список прижат к верху, сразу под заголовком */
+    margin-top: 4px;
+  }
+
+  .education-journey__photo {
+    width: 280px;
+    margin-bottom: -56px;
+  }
+}
