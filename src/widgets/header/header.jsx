@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/shared/ui/button";
+import { AuthModal } from "@/shared/ui/auth-modal";
 import { scrollToId } from "@/shared/lib";
 
 const helpLinks = [
@@ -11,7 +12,13 @@ const helpLinks = [
 export const Header = () => {
   const [helpOpen, setHelpOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [authMode, setAuthMode] = useState(null); // "login" | "signup" | null
   const helpRef = useRef(null);
+
+  const openAuth = (mode) => {
+    setMenuOpen(false);
+    setAuthMode(mode);
+  };
 
   // закрыть попап "Get help" по клику вне или по Esc
   useEffect(() => {
@@ -75,12 +82,20 @@ export const Header = () => {
           <a href="#" onClick={() => setMenuOpen(false)}>
             Bookstore
           </a>
-          <a href="#" onClick={() => setMenuOpen(false)}>
+          <button
+            type="button"
+            className="header__link-btn"
+            onClick={() => openAuth("signup")}
+          >
             Sign up
-          </a>
-          <a href="#" onClick={() => setMenuOpen(false)}>
+          </button>
+          <button
+            type="button"
+            className="header__link-btn"
+            onClick={() => openAuth("login")}
+          >
             Log in
-          </a>
+          </button>
 
           <Button
             size="sm"
@@ -106,6 +121,12 @@ export const Header = () => {
           <span />
         </button>
       </div>
+
+      <AuthModal
+        mode={authMode}
+        onClose={() => setAuthMode(null)}
+        onModeChange={setAuthMode}
+      />
     </header>
   );
 };

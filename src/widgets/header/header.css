@@ -123,15 +123,22 @@
   gap: 24px;
 }
 
-.header__links a {
+.header__links a,
+.header__link-btn {
+  font-family: inherit;
   font-size: 15px;
   font-weight: 500;
   color: #1a1a2e;
   position: relative;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
 }
 
 /* подчёркивание, растущее при наведении */
-.header__links a::after {
+.header__links a::after,
+.header__link-btn::after {
   content: "";
   position: absolute;
   left: 0;
@@ -142,7 +149,8 @@
   transition: width 0.2s ease;
 }
 
-.header__links a:hover::after {
+.header__links a:hover::after,
+.header__link-btn:hover::after {
   width: 100%;
 }
 
@@ -198,9 +206,11 @@
   padding: 8px 24px 16px;
 }
 
-.header__links--open a {
+.header__links--open a,
+.header__links--open .header__link-btn {
   padding: 12px 0;
   border-bottom: 1px solid #f1eef7;
+  text-align: left;
 }
 
 .header__links--open .header__cta {
