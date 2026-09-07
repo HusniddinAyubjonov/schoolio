@@ -69,11 +69,36 @@
   transform: rotate(-135deg);
 }
 
+.faq-group__collapse {
+  display: grid;
+  grid-template-rows: 0fr;
+  visibility: hidden;
+  transition:
+    grid-template-rows 0.32s ease,
+    visibility 0s linear 0.32s;
+}
+
+.faq-group__collapse > .faq-group__panel {
+  overflow: hidden;
+}
+
+.faq-group--open > .faq-group__collapse {
+  grid-template-rows: 1fr;
+  visibility: visible;
+  transition:
+    grid-template-rows 0.32s ease,
+    visibility 0s;
+}
+
 .faq-group__panel {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding: 20px 16px 12px;
+  padding: 20px 16px 0;
+}
+
+.faq-group--open > .faq-group__collapse > .faq-group__panel {
+  padding-bottom: 12px;
 }
 
 /* --- вопрос --- */
@@ -107,11 +132,29 @@
   transform: rotate(-135deg);
 }
 
-.faq-q__panel {
-  padding-top: 12px;
+.faq-q__collapse {
+  display: grid;
+  grid-template-rows: 0fr;
+  visibility: hidden;
+  transition:
+    grid-template-rows 0.28s ease,
+    visibility 0s linear 0.28s;
+}
+
+.faq-q__collapse > .faq-q__panel {
+  overflow: hidden;
+}
+
+.faq-q--open .faq-q__collapse {
+  grid-template-rows: 1fr;
+  visibility: visible;
+  transition:
+    grid-template-rows 0.28s ease,
+    visibility 0s;
 }
 
 .faq-q__panel p {
+  padding-top: 12px;
   font-size: 14px;
   font-weight: 300;
   line-height: 1.7;
@@ -160,7 +203,9 @@
 
 @media (prefers-reduced-motion: reduce) {
   .faq-group__chevron,
-  .faq-q__chevron {
+  .faq-q__chevron,
+  .faq-group__collapse,
+  .faq-q__collapse {
     transition: none;
   }
 }

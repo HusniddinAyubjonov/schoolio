@@ -1,3 +1,5 @@
+import { Reveal } from "@/shared/ui/reveal";
+
 /**
  * "Trusted by ..." — логотипы партнёров.
  * Мобайл: длинный заголовок + сетка логотипов на светлом фоне.
@@ -24,15 +26,15 @@ export const TrustedBy = () => {
   return (
     <section className="trusted" id="trusted-by">
       <div className="trusted__inner">
-        <p className="trusted__title trusted__title--long">
+        <Reveal as="p" className="trusted__title trusted__title--long">
           Trusted by families, teachers, schools, and companies
-        </p>
-        <p className="trusted__title trusted__title--short">
+        </Reveal>
+        <Reveal as="p" className="trusted__title trusted__title--short">
           Trusted industry partners
-        </p>
+        </Reveal>
 
         <div className="trusted__content">
-          <div className="trusted__photo">
+          <Reveal variant="left" className="trusted__photo">
             <img
               src="/images/partners/photo.jpg"
               alt="Students learning together"
@@ -41,13 +43,19 @@ export const TrustedBy = () => {
                 e.currentTarget.parentElement.style.display = "none";
               }}
             />
-          </div>
+          </Reveal>
 
           <ul className="trusted__grid">
-            {logos.map((logo) => (
-              <li key={logo.src} className="trusted__logo">
+            {logos.map((logo, index) => (
+              <Reveal
+                as="li"
+                key={logo.src}
+                variant="zoom"
+                delay={index * 55}
+                className="trusted__logo"
+              >
                 <img src={logo.src} alt={logo.alt} loading="lazy" />
-              </li>
+              </Reveal>
             ))}
           </ul>
         </div>

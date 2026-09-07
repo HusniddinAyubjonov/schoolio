@@ -1,4 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
+import { Reveal } from "@/shared/ui/reveal";
+import { useInView } from "@/shared/lib";
 import { testimonials } from "./testimonials-data.js";
 
 const AUTOPLAY_MS = 7000;
@@ -6,6 +8,7 @@ const AUTOPLAY_MS = 7000;
 export const Testimonials = () => {
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [trackRef, trackIn] = useInView();
   const count = testimonials.length;
 
   const go = useCallback(
@@ -30,7 +33,9 @@ export const Testimonials = () => {
       onMouseLeave={() => setPaused(false)}
     >
       <div className="testimonials__inner">
-        <h2 className="testimonials__title">Loved by learners everywhere</h2>
+        <Reveal as="h2" className="testimonials__title">
+          Loved by learners everywhere
+        </Reveal>
 
         <div className="testimonials__viewport">
           <button
@@ -42,7 +47,10 @@ export const Testimonials = () => {
             ‹
           </button>
 
-          <div className="testimonials__track">
+          <div
+            ref={trackRef}
+            className={`testimonials__track ${trackIn ? "is-in" : ""}`}
+          >
             {testimonials.map((item, index) => (
               <article
                 key={item.id}

@@ -1,4 +1,5 @@
 import { Button } from "@/shared/ui/button";
+import { Reveal } from "@/shared/ui/reveal";
 import { scrollToId } from "@/shared/lib";
 
 const startRoles = [
@@ -12,27 +13,37 @@ export const QuickStart = () => {
   return (
     <section className="quick-start" id="quick-start">
       <div className="quick-start__inner">
-        <p className="quick-start__eyebrow">Feeling overwhelmed?</p>
-        <h2 className="quick-start__title">Quickly start as a</h2>
+        <Reveal as="p" className="quick-start__eyebrow">
+          Feeling overwhelmed?
+        </Reveal>
+        <Reveal as="h2" className="quick-start__title" delay={60}>
+          Quickly start as a
+        </Reveal>
 
         <div className="quick-start__roles">
-          {startRoles.map((role) => (
-            <Button
+          {startRoles.map((role, index) => (
+            <Reveal
               key={role.label}
-              className="quick-start__btn"
-              onClick={() => scrollToId(role.target)}
+              variant="zoom"
+              delay={120 + index * 80}
+              className="quick-start__btn-wrap"
             >
-              {role.label}
-            </Button>
+              <Button
+                className="quick-start__btn"
+                onClick={() => scrollToId(role.target)}
+              >
+                {role.label}
+              </Button>
+            </Reveal>
           ))}
         </div>
 
-        <p className="quick-start__help">
+        <Reveal as="p" className="quick-start__help" delay={460}>
           Not Sure Where to Start?{" "}
           <a href="#faq" className="quick-start__help-link">
             Get Help
           </a>
-        </p>
+        </Reveal>
       </div>
     </section>
   );

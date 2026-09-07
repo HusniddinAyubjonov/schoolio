@@ -1,3 +1,5 @@
+import { Reveal } from "@/shared/ui/reveal";
+
 const navLinks = [
   { label: "Shop", href: "#", active: false },
   { label: "Blog", href: "#", active: false },
@@ -38,7 +40,7 @@ export const Footer = () => {
       <div className="footer__card">
         <span className="footer__planet" aria-hidden="true" />
 
-        <div className="footer__main">
+        <Reveal className="footer__main">
           <span className="footer__logo">schoolio</span>
 
           <nav className="footer__nav" aria-label="Footer">
@@ -67,13 +69,13 @@ export const Footer = () => {
               </li>
             ))}
           </ul>
-        </div>
+        </Reveal>
 
-        <div className="footer__bottom">
+        <Reveal className="footer__bottom" delay={120}>
           <p className="footer__copy">
             © 2023 Schoolio Learning Corp. All rights reserved.
           </p>
-        </div>
+        </Reveal>
       </div>
     </footer>
   );

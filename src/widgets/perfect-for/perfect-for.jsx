@@ -1,4 +1,5 @@
 import { Button } from "@/shared/ui/button";
+import { Reveal } from "@/shared/ui/reveal";
 import { scrollToId } from "@/shared/lib";
 import { roles } from "./roles-data.js";
 import { RoleArt } from "./role-art.jsx";
@@ -6,11 +7,14 @@ import { RoleArt } from "./role-art.jsx";
 export const PerfectFor = () => {
   return (
     <section className="perfect-for" id="perfect-for">
-      <h2 className="perfect-for__title">Perfect for</h2>
+      <Reveal as="h2" className="perfect-for__title">
+        Perfect for
+      </Reveal>
 
       <div className="perfect-for__rows">
         {roles.map((role) => (
-          <article
+          <Reveal
+            as="article"
             key={role.id}
             className="role"
             id={`perfect-for-${role.id}`}
@@ -43,7 +47,7 @@ export const PerfectFor = () => {
                 </Button>
               </div>
             </div>
-          </article>
+          </Reveal>
         ))}
       </div>
     </section>

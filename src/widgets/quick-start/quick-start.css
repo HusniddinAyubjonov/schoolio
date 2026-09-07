@@ -33,9 +33,14 @@
   align-items: center;
 }
 
-.btn.quick-start__btn {
+.quick-start__btn-wrap {
+  display: flex;
   width: 100%;
   max-width: 320px;
+}
+
+.btn.quick-start__btn {
+  width: 100%;
   border-radius: 16px;
   padding: 15px 32px;
   background: #d97139;
@@ -93,8 +98,11 @@
     gap: 24px;
   }
 
-  .btn.quick-start__btn {
+  .quick-start__btn-wrap {
     width: auto;
+  }
+
+  .btn.quick-start__btn {
     min-width: 200px;
     font-size: 18px;
   }
