@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/shared/ui/button";
+import { Reveal } from "@/shared/ui/reveal";
 
 /**
  * КАРТИНКИ — public/images/trial/:
@@ -21,7 +22,7 @@ export const FreeTrial = () => {
 
   return (
     <section className="free-trial" id="trial">
-      <div className="free-trial__card">
+      <Reveal className="free-trial__card" variant="zoom">
         <img
           src="/images/free/squiggle.png"
           alt=""
@@ -63,7 +64,7 @@ export const FreeTrial = () => {
           className="free-trial__fire"
           aria-hidden="true"
         />
-      </div>
+      </Reveal>
     </section>
   );
 };

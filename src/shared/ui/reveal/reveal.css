@@ -7,6 +7,10 @@
   will-change: opacity, transform;
 }
 
+.reveal--fade {
+  /* только прозрачность — без transform (безопасно для секций с
+     выходящими за край карточками / абсолютным позиционированием) */
+}
 .reveal--up {
   transform: translateY(28px);
 }

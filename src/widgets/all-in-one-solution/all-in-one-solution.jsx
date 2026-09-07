@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { VideoModal } from "@/shared/ui/video-modal";
+import { Reveal } from "@/shared/ui/reveal";
 
 const points = [
   "Choose fully online or offline",
@@ -14,9 +15,11 @@ export const AllInOneSolution = () => {
 
   return (
     <section className="solution">
-      <h2 className="solution__title">Your Complete All-In-One Solution</h2>
+      <Reveal as="h2" className="solution__title">
+        Your Complete All-In-One Solution
+      </Reveal>
 
-      <div className="solution__content">
+      <Reveal className="solution__content" delay={100}>
         <div className="solution__player-wrap">
           {/* молния — теперь нависает НАД картинкой, а не в углу секции */}
           <svg
@@ -61,7 +64,7 @@ export const AllInOneSolution = () => {
             <li key={point}>{point}</li>
           ))}
         </ul>
-      </div>
+      </Reveal>
 
       <VideoModal
         isOpen={videoOpen}

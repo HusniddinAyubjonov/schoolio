@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Reveal } from "@/shared/ui/reveal";
 
 /**
  * КАРТИНКИ — public/images/wellbeing/:
@@ -44,9 +45,11 @@ export const Wellbeing = () => {
 
   return (
     <section className="wellbeing">
-      <h2 className="wellbeing__title">Where Academics And Well-Being Meet</h2>
+      <Reveal as="h2" className="wellbeing__title">
+        Where Academics And Well-Being Meet
+      </Reveal>
 
-      <div className="wellbeing__content">
+      <Reveal className="wellbeing__content" delay={100}>
         <ul className="wellbeing__list">
           {points.map((point) => (
             <li key={point}>{point}</li>
@@ -94,7 +97,7 @@ export const Wellbeing = () => {
             )}
           </div>
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 };
