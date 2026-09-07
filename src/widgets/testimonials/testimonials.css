@@ -1,0 +1,246 @@
+.testimonials {
+  padding: 56px 20px;
+}
+
+.testimonials__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.testimonials__title {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.2;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.testimonials__viewport {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.testimonials__track {
+  position: relative;
+  flex: 1;
+  display: grid;
+}
+
+/* карточка-строка: на мобайле — слайд карусели (фото сверху, текст снизу) */
+.t-row {
+  grid-area: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  border-radius: 28px;
+  overflow: hidden;
+  background: var(--card);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+}
+
+.t-row--active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.t-row__photo {
+  position: relative;
+  background: #feede6;
+  aspect-ratio: 16 / 10;
+}
+
+.t-row__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.t-row__photo:hover img {
+  transform: scale(1.05);
+}
+
+.t-row__mark {
+  position: absolute;
+  left: 20px;
+  bottom: 2px;
+  font-size: 64px;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.t-row__quote {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 28px 24px 32px;
+}
+
+.t-row__quote blockquote {
+  font-family: var(--font-script);
+  font-size: 24px;
+  line-height: 1.35;
+  color: var(--tone);
+}
+
+.t-row__author {
+  font-family: var(--font-script);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--tone);
+}
+
+.testimonials__arrow {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #1a1a2e;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(28, 24, 54, 0.12);
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease;
+}
+
+.testimonials__arrow:hover {
+  transform: scale(1.08);
+  background: #f4f2fb;
+}
+
+.testimonials__dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.testimonials__dot {
+  width: 10px;
+  height: 10px;
+  border: none;
+  border-radius: 50%;
+  background: #d3d6de;
+  cursor: pointer;
+  padding: 0;
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease;
+}
+
+.testimonials__dot--active {
+  transform: scale(1.35);
+  background: var(--tone);
+}
+
+@media (min-width: 1024px) {
+  .testimonials {
+    padding: 140px 40px;
+  }
+
+  .testimonials__title {
+    font-size: 56px;
+    text-align: left;
+    margin-bottom: 64px;
+  }
+
+  .testimonials__viewport {
+    gap: 0;
+  }
+
+  .testimonials__arrow,
+  .testimonials__dots {
+    display: none;
+  }
+
+  /* десктоп: 4 строки, каждая — фото + цитата рядом */
+  .testimonials__track {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .t-row {
+    flex-direction: row;
+    border-radius: 32px;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    min-height: 323px;
+  }
+
+  .t-row--flip {
+    flex-direction: row-reverse;
+  }
+
+  /* каскадное появление строк на десктопе */
+  .testimonials__track .t-row {
+    opacity: 0;
+    transform: translateY(32px);
+    transition:
+      opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .testimonials__track.is-in .t-row {
+    opacity: 1;
+    transform: none;
+  }
+
+  .testimonials__track.is-in .t-row:nth-child(2) {
+    transition-delay: 0.1s;
+  }
+  .testimonials__track.is-in .t-row:nth-child(3) {
+    transition-delay: 0.2s;
+  }
+  .testimonials__track.is-in .t-row:nth-child(4) {
+    transition-delay: 0.3s;
+  }
+
+  .t-row__photo {
+    flex: 0 0 50%;
+    aspect-ratio: auto;
+  }
+
+  .t-row__quote {
+    flex: 0 0 50%;
+    justify-content: center;
+    padding: 48px 56px;
+  }
+
+  .t-row__quote blockquote {
+    font-size: 28px;
+    line-height: 1.4;
+  }
+
+  .t-row__author {
+    font-size: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .t-row,
+  .testimonials__track .t-row,
+  .testimonials__arrow,
+  .testimonials__dot,
+  .t-row__photo img {
+    transition: none;
+    transform: none;
+  }
+
+  .testimonials__track .t-row {
+    opacity: 1;
+  }
+}

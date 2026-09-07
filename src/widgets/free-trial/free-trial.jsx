@@ -1,11 +1,17 @@
 import { useState } from "react";
+import { Modal } from "react-responsive-modal";
+import "react-responsive-modal/styles.css";
 import { Button } from "@/shared/ui/button";
+import { Reveal } from "@/shared/ui/reveal";
 
 /**
- * КАРТИНКИ — public/images/trial/:
- *   fire-icon.png     440×442  основной значок огня
- *   squiggle.svg      маленькие жёлтые завитки над огнём (справа сверху)
- *   dash-marks.svg    три коротких штриха внизу слева, ЗА пределами карточки
+ * КАРТИНКИ — public/images/free/:
+ *   fire.png      основной значок огня
+ *   squiggle.png  жёлтые завитки над огнём (справа сверху)
+ *   marks.png     три коротких штриха внизу слева, ЗА пределами карточки
+ *
+ * Кнопка "Get Started" открывает модалку записи на пробный период
+ * (react-responsive-modal).
  */
 
 const benefits = [
@@ -16,12 +22,24 @@ const benefits = [
   "Wide range of topics to choose from",
 ];
 
-export const FreeTrial = () => {
+export const FreeTrial = ({ id = "trial" }) => {
+  const [open, setOpen] = useState(false);
   const [sent, setSent] = useState(false);
 
+  const closeModal = () => {
+    setOpen(false);
+    // сбрасываем "успех" после закрытия, чтобы при повторном открытии была форма
+    setTimeout(() => setSent(false), 250);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setSent(true);
+  };
+
   return (
-    <section className="free-trial" id="trial">
-      <div className="free-trial__card">
+    <section className="free-trial" id={id || undefined}>
+      <Reveal className="free-trial__card" variant="zoom">
         <img
           src="/images/free/squiggle.png"
           alt=""
@@ -50,10 +68,7 @@ export const FreeTrial = () => {
           </ul>
 
           <div className="free-trial__cta">
-            <Button onClick={() => setSent(true)}>Get Started</Button>
-            {sent && (
-              <span className="free-trial__sent">Заявка отправлена! 🎉</span>
-            )}
+            <Button onClick={() => setOpen(true)}>Get Started</Button>
           </div>
         </div>
 
@@ -63,7 +78,57 @@ export const FreeTrial = () => {
           className="free-trial__fire"
           aria-hidden="true"
         />
-      </div>
+      </Reveal>
+
+      <Modal
+        open={open}
+        onClose={closeModal}
+        center
+        classNames={{
+          overlay: "trial-modal__overlay",
+          modal: "trial-modal",
+          closeButton: "trial-modal__close",
+        }}
+        aria-labelledby="trial-modal-title"
+      >
+        {sent ? (
+          <div className="trial-modal__done">
+            <span className="trial-modal__emoji" aria-hidden="true">
+              🎉
+            </span>
+            <h3 id="trial-modal-title">You&rsquo;re all set!</h3>
+            <p>
+              Check your inbox — your 7-day free trial is on its way. No charge
+              until it ends.
+            </p>
+            <Button onClick={closeModal}>Done</Button>
+          </div>
+        ) : (
+          <form className="trial-modal__form" onSubmit={handleSubmit}>
+            <h3 id="trial-modal-title">Start your 7-day free trial</h3>
+            <p>Full access to every subject. No credit card required.</p>
+
+            <label className="trial-modal__field">
+              <span>Email address</span>
+              <input
+                type="email"
+                name="email"
+                required
+                autoFocus
+                placeholder="you@example.com"
+              />
+            </label>
+
+            <Button type="submit" className="trial-modal__submit">
+              Get Started
+            </Button>
+
+            <p className="trial-modal__fineprint">
+              By continuing you agree to the Terms and Privacy Policy.
+            </p>
+          </form>
+        )}
+      </Modal>
     </section>
   );
 };

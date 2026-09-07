@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/shared/ui/button";
 import { VideoModal } from "@/shared/ui/video-modal";
+import { Reveal } from "@/shared/ui/reveal";
 import { scrollToId } from "@/shared/lib";
 
 /**
@@ -64,7 +65,7 @@ export const Hero = () => {
         />
       </div>
 
-      <div className="hero__content">
+      <Reveal className="hero__content" variant="up">
         <p className="hero__eyebrow">School Your Way with</p>
         <h1 className="hero__title">
           Schoolio Digital <span className="hero__trademark">™</span>
@@ -76,11 +77,11 @@ export const Hero = () => {
         </p>
 
         <Button onClick={() => scrollToId("trial")}>Get Started</Button>
-      </div>
+      </Reveal>
 
       {/* Композиция карточек — НЕ внутри .hero__bg, поэтому её низ
           спокойно перекрывает следующую (белую) секцию */}
-      <div className="hero__dashboard">
+      <Reveal className="hero__dashboard" variant="up" delay={140}>
         <img
           src="/images/hero/main.png"
           alt="Read and Represent Numbers to 1000"
@@ -115,7 +116,7 @@ export const Hero = () => {
           alt="Ashley's Calendar"
           className="hero__img hero__img--calendar"
         />
-      </div>
+      </Reveal>
 
       <VideoModal
         isOpen={activeVideo === "topic"}

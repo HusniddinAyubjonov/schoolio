@@ -1,5 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;800&family=Caveat:wght@500;600;700&display=swap");
+
 :root {
-  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  /* Museo Sans в макете -> Mulish; Sketchnote Text -> Caveat */
+  --font-sans: "Mulish", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-script: "Caveat", "Bradley Hand", "Comic Sans MS", cursive;
+
+  --ink: #1f2937;
+  --ink-soft: #374151;
 }
 
 * {

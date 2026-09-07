@@ -9,6 +9,7 @@
  * папку (например doodle-notepad.svg / doodle-cap.svg) и замени
  * <svg>...</svg> на <img src="/images/education/doodle-notepad.svg" />.
  */
+import { Reveal } from "@/shared/ui/reveal";
 
 const features = [
   "Increase confidence in learners",
@@ -24,11 +25,11 @@ export const EducationJourney = () => {
         ✦ ✧
       </span>
 
-      <h2 className="education-journey__title">
+      <Reveal as="h2" className="education-journey__title">
         Enrich Your Child's Education Journey
-      </h2>
+      </Reveal>
 
-      <div className="education-journey__content">
+      <Reveal className="education-journey__content" delay={100}>
         <div className="education-journey__photo education-journey__photo--girl">
           <img src="/images/education/girl.png" alt="Ученица с ноутбуком" />
 
@@ -105,7 +106,7 @@ export const EducationJourney = () => {
             />
           </svg>
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 };
