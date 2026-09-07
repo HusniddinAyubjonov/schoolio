@@ -15,7 +15,7 @@ export const roles = [
     title: "Homeschooling",
     tone: "purple",
     doodle: "crown",
-    image: "/images/roles/homeschooling.png",
+    image: "/images/roles/homeschooling.jpg",
     points: [
       "All of your secular curriculum needs in one place, choose online or offline",
       "365 days a year 1:1 homeschooling support",
@@ -30,7 +30,7 @@ export const roles = [
     title: "Supplementary",
     tone: "coral",
     doodle: "wrench",
-    image: "/images/roles/supplementary.png",
+    image: "/images/roles/supplementary.jpg",
     points: [
       "Catch up on any subject and grade in one place",
       "Learn on the go, whether you are traveling or sick",
@@ -45,7 +45,7 @@ export const roles = [
     title: "Teachers",
     tone: "orange",
     doodle: "plane",
-    image: "/images/roles/teachers.png",
+    image: "/images/roles/teachers.jpg",
     points: [
       "The one-stop-shop platform for tutoring needs",
       "Assessments and progress tracking",
@@ -60,7 +60,7 @@ export const roles = [
     title: "Tutors",
     tone: "green",
     doodle: "calendar",
-    image: "/images/roles/tutors.png",
+    image: "/images/roles/tutors.jpg",
     points: [
       "Tailored and differentiated learning per student",
       "Assessments and progress tracking",
@@ -75,7 +75,7 @@ export const roles = [
     title: "Institutions",
     tone: "blue",
     doodle: "arch",
-    image: "/images/roles/institutions.png",
+    image: "/images/roles/institutions.jpg",
     points: [
       "Unlock school wide SEL and academic analytics by grade, subject, and class",
       "Supporting teachers with access to supplementary interest-based curriculum",

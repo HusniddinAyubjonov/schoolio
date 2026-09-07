@@ -56,6 +56,17 @@ export const Testimonials = () => {
                 <span className="t-card__avatar" aria-hidden="true">
                   {item.author.charAt(0)}
                 </span>
+                {item.image && (
+                  <img
+                    src={item.image}
+                    alt={item.author}
+                    className="t-card__photo"
+                    loading="lazy"
+                    onError={(e) => {
+                      e.currentTarget.style.display = "none";
+                    }}
+                  />
+                )}
                 <span className="t-card__mark" aria-hidden="true">
                   &ldquo;
                 </span>

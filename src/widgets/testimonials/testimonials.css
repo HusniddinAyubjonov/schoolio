@@ -95,10 +95,19 @@
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
 }
 
+.t-card__photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .t-card__mark {
   position: absolute;
   left: 20px;
   bottom: 6px;
+  z-index: 1;
   font-size: 64px;
   line-height: 1;
   color: rgba(255, 255, 255, 0.85);
