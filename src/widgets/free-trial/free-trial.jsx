@@ -22,7 +22,7 @@ const benefits = [
   "Wide range of topics to choose from",
 ];
 
-export const FreeTrial = () => {
+export const FreeTrial = ({ id = "trial" }) => {
   const [open, setOpen] = useState(false);
   const [sent, setSent] = useState(false);
 
@@ -38,7 +38,7 @@ export const FreeTrial = () => {
   };
 
   return (
-    <section className="free-trial" id="trial">
+    <section className="free-trial" id={id || undefined}>
       <Reveal className="free-trial__card" variant="zoom">
         <img
           src="/images/free/squiggle.png"

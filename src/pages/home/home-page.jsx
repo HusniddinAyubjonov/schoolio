@@ -19,11 +19,12 @@ export const HomePage = () => {
         <Hero />
         <EducationJourney />
         <AllInOneSolution />
+        <FreeTrial />
         <Wellbeing />
         <PerfectFor />
         <TrustedBy />
         <Testimonials />
-        <FreeTrial />
+        <FreeTrial id={null} />
         <Faq />
         <QuickStart />
       </main>
